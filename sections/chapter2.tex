@@ -149,17 +149,19 @@ Then we have
     g_2&=g_\beta g_\alpha^{-1}g_1g_\alpha g_\beta^{-1}=
     g_\beta g_\alpha^{-1}g_1\qty(g_\beta g_\alpha^{-1})^{-1}.
 \end{align}
-The set of all the mutually conjugate elements form \emph{a class}. Thus the
+The set of all the mutually conjugate elements form \emph{a class}. Thus, the
 elements $g_1,g_2,\dots,g_k$ form a class of conjugate elements. The number of
 elements in a class is its order. Any finite group can be denoted into a number
 of classes of conjugate elements. The unit element of a group is a class by itself.
 All the elements of a given class have the same order. The product of the elements
 of two classes consists of whole classes.
 \begin{proof}[]
+    \wtf{
     \begin{align}
         C_iC_j&=\sum_k hijk C_k
     \end{align}
     where $k$ is the multiplicity of the class.
+}
     If $g_p\in C_iC_j$, then the entire class $C_p$ to which $g_p$ belongs
     itself belongs to the set $C_iC_j$. Let
     \begin{align}
@@ -222,7 +224,7 @@ cosets $N$,
 \begin{align}
     N, g_1N, g_2N,\dots,g_{k-1}N
 \end{align}
-and lets form a set $g_1Ng_2N$, which consists of different elements
+and let's form a set $g_1Ng_2N$, which consists of different elements
 $g_1h_\alpha g_2h_\beta$, where $h_\alpha$ and $h_\beta$ run independently over
 the entire subgroup $N$. We can see that
 \begin{align}
@@ -280,7 +282,7 @@ properties:
         $\widetilde{E}\widetilde{E}=\widetilde{E}$. $g'_ig'_k=g'_\ell$ and the
         set $g'_1,g'_2,\dots,g'_j$ is closed with respect to group multiplication.
 \end{itemize}
-from (a), it contains a unit element, but since $\widetilde{E}$ is the inverse
+From (a), it contains a unit element, but since $\widetilde{E}$ is the inverse
 of itself and because of (b) for each element $g'_\ell$ we can find the inverse.
 From $\widetilde{g}\widetilde{E}\widetilde{g}^{-1}=\widetilde{E}$, where
 $\widetilde{g}$ is an arbitrary element of $\widetilde{G}$, it follows that
@@ -292,9 +294,10 @@ forms an \emph{invariant} subgroup of $G$.
 
 % subsection Isomorphism and Homomorphism of groups (end)
 
-\subsection{Exercices} % (fold)
+\subsection{Exercises} % (fold)
 \label{sub:Exercices}
 
+\begin{exercise}
 Consider the group $S_6$, symmetric group of order $6$, with the elements
 $\{E, A, B, C, D, F\}$.
 \begin{center}
@@ -313,8 +316,7 @@ $\{E, A, B, C, D, F\}$.
 \begin{enumerate}
     \item Find the order of all the elements.
     \item Find the possible subgroups.
-    \item Divide the group into cosets, and verify that this can be done in an
-        unique way.
+    \item Divide the group into cosets, and verify that this can be done uniquely.
     \item Divide the group into classes of conjugate elements.
     \item Find the invariant subgroups and verify that the left and right
         cosets are the same.
@@ -328,6 +330,7 @@ $\{E, A, B, C, D, F\}$.
                 corresponding to rotations and reflections.
         \end{enumerate}
 \end{enumerate}
+\end{exercise}
 
 % Q1
 Recall the definition of the order of an element

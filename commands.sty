@@ -175,3 +175,64 @@
 % Roman numbers
 \newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 
+\renewcommand{\tilde}{\widetilde}
+
+% Colored box generic
+\newtcolorbox{coloredMatchedBox}[1][]
+{
+		colback=white,            % Background color for the content
+		colframe=\MinorColor,           % Frame color
+		colbacktitle=gray!15,     % Background color for the title
+		coltitle=black,           % Text color for the title
+		fonttitle=\bfseries,      %
+		title={#1},               % The title content will be passed as an argument
+		enhanced,
+		attach boxed title to top left={yshift=-2mm, xshift=2mm},
+		boxed title style={
+			colframe=\MasterColor,
+			arc=1mm,
+			outer arc=1.5mm,
+			boxrule=0.5mm,        % Border thickness for the title
+		},
+		overlay={},
+}
+\newtcolorbox{coloredBreakableMatchedBox}[1][]
+{
+    breakable,
+		colback=white,            % Background color for the content
+		colframe=\MinorColor,           % Frame color
+		colbacktitle=gray!15,     % Background color for the title
+		coltitle=black,           % Text color for the title
+		fonttitle=\bfseries,      %
+		title={#1},               % The title content will be passed as an argument
+		enhanced,
+		attach boxed title to top left={yshift=-2mm, xshift=2mm},
+		boxed title style={
+			colframe=\MasterColor,
+			arc=1mm,
+			outer arc=1.5mm,
+			boxrule=0.5mm,        % Border thickness for the title
+		},
+		overlay={},
+}
+
+% Theorem environnement
+\newcounter{thmCounter}
+\newenvironment{theorem}[1][]
+{%
+\begin{coloredMatchedBox}[\refstepcounter{thmCounter}\textbf{Theorem~\thesection.\thethmCounter}] \em%
+}
+{\em \end{coloredMatchedBox}}
+
+% Exercise environnement
+\newcounter{exerciseCounter}
+\newenvironment{exercise}[1][]
+{%
+    \begin{coloredBreakableMatchedBox}[\refstepcounter{exerciseCounter}\textbf{Exercise~\thesection.\theexerciseCounter}]%
+}{%
+    \end{coloredBreakableMatchedBox}
+}
+
+% Don't understand
+\newcommand{\wtf}[1]{{\color{red}#1}}
+
