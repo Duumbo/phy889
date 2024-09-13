@@ -1,0 +1,42 @@
+\documentclass[12pt, twoside]{article}
+\usepackage{colors,style,commands}
+
+\MasterColor  {YALE1_MASTER}
+
+% Title page variables
+\Titre        {Lecture Notes}
+\SousTitre    {as an audit}
+
+\NomCours     {Group Theory Applied to Condensed Matter Physics}
+\CodeCours    {PHY889}
+
+\Nom          {Dimitri Bonanni-Surprenant}
+
+\Enseignant   {Maia Vergniory}
+
+\Emblem       {UDS} % Choose (UDS, UQTR, BISHOP, MCGILL, ULAVAL, UDEM)
+\University   {Sherbrooke's University}
+\Faculte      {of Science}
+\Departement  {of Physics}
+\Date         {\today}
+
+
+\begin{document}
+
+    \Language{english}
+
+    \subfile{TitlePage}
+
+    \tableofcontents
+
+    \clearpage
+
+    \subfile{sections/chapter2.tex}
+
+    \clearpage
+
+    \pagestyle{plain} % Remove header for references
+    \bibliography{refs}
+
+\end{document}
+

@@ -1,0 +1,355 @@
+\section{Abstract Groups}
+
+By denoting the elements of a group by certain symbols which obey a given rule
+of multiplication, we obtain the so-called abstract group. In this chapter, we
+will review some of its properties.
+
+\subsection{Translation group} % (fold)
+\label{sub:Translation group}
+
+Suppose that the group $G$ consists of elements $g_1,g_2,\dots,g_m$. Let us
+multiply its elements on the right by some element $g_\ell$, i.e., let's carry
+a right translation along the group.
+
+\begin{align}
+    g_1g_\ell,g_2g_\ell,\dots,g_mg_\ell
+\end{align}
+
+We see that each group element is encountered once and only once in this sequence.
+Suppose that an element could be encountered more than once such that $g_ig_\ell=
+g_jg_\ell$, then this would imply that $g_i=g_j$ by the existence of the inverse.
+Since there are as many elements as elements in the group, and they are all
+unique, then because a group is closed this implies that all elements are
+represented.
+Let $g_\ell$ be an arbitrary element of the group, it is clear that
+$\qty(g_\ell g^{-1}_\ell)g_\ell=g_\ell$, and, consequently, the element $g_\ell$
+also appears in the sequence. Since the number of elements in our sequence is the
+order of the group, each element can be found in the sequence only once. The
+sequence of elements $g_\ell g_1,g_\ell g_2,\dots,g_\ell g_m$ has the same
+properties.
+
+% subsection Translation group (end)
+
+\subsection{Subgroups} % (fold)
+\label{sub:Sub-groups}
+
+A set of elements belonging to a group $G$, to which itself forms a group with
+the same multiplication rule, is a subgroup of $G$. The remainder of the group
+$G$ cannot form a group since it will not contain the unit element.
+
+% subsection Sub-groups (end)
+
+\subsection{The order of an element} % (fold)
+\label{sub:The order of an element}
+
+Let us take an arbitrary element $g_i$ of a group $G$ and consider the powers of
+$g_i,g_i^2,g_i^3,\dots$. Since we are considering a finite group, the members of
+this sequence must appear repeatedly.
+
+Suppose for example that
+\begin{align}
+    g_i^{k_1}=g_i^{k_2}=g_i\qquad k_2>k_1\\
+    \rightarrow\ g_i^{k_2}=g_i^{k_1}g_i^{k2-k1}=g_ig_i^{k_2-k_1}=g_i\implies
+    g_i^{k_2-k_1}=E.
+\end{align}
+
+The smallest exponent $h$ for which $g_i^h=E$ is the order of the element $g_i$.
+The set of elements $g_i,g_i^2,\ddots g_i^h=E$ is the period of the element $g_i$.
+It is clear that the period of an element of the group is a subgroup of $G$. All
+the elements of this subgroup commute and consequently, the subgroup is Abelian.
+
+If $h$ is the order of the element $g_j$, then $g_j^{h-1}=g_j^{-1}$,
+therefore
+for finite groups, the existence of the inverse is a consequence of the group
+order properties.
+\begin{proof}
+    Recall the definition of a group.
+    \begin{itemize}
+        \item Composition law. $\forall a,b\in G, a\cdot b\in G$.
+        \item Associativity. $\forall a,b,c\in G,
+            (a\cdot b)\cdot c=a\cdot(b\cdot c)$.
+        \item Neutral element. $\exists E\in G\ni \forall a\in G, E\cdot a=a\cdot E=a$.
+        \item Symmetry. $\forall a\in G\exists a^{-1}\in G\ni
+            a\cdot a^{-1}=a^{-1}\cdot a=E$.
+    \end{itemize}
+    The goal of this proof is to show that for finite groups, we can relax the
+    symmetry axiom as it is a consequence of the group order properties. This
+    section already proved most of this proof.
+\end{proof}
+
+
+% subsection The order of an element (end)
+
+\subsection{Cosets} % (fold)
+\label{sub:Cosets}
+
+Let $H$ be a subgroup of a group $G$, $h_1,h_2,\ddots, h_m$, where $m$ is the
+order of $H$. Let us now construct the following sequences of sets of elements
+of $G$.
+\begin{itemize}
+    \item Let us take $g_1$ contained in $G$, which is not contained in $H$, and
+        construct the set $g_1h_1,g_1h_2,\dots,g_1h_m$, which we denote by $g_1H$.
+    \item Now we take another element of $G$, $g_2\notin H$, and set up $g_2H$.
+    \item \vdots
+\end{itemize}
+
+As a result, we obtain the sequence $H,g_1H,g_2H,\dots,g_{k-1}H$. The sets $g_iH$
+are the \emph{left cosets} of the subgroup $H$. We shall show that the cosets
+defined above have no common elements. Let us suppose that the sets $g_1H$ and
+$g_2H$ have one common element.
+
+\begin{align}
+    g_1h_1=g_2h_2\rightarrow g_2=g_1h_1h_2^{-2}=g_1h_3
+\end{align}
+
+so that $g_2$ belongs to the $g_1H$ set. But this conflicts with the original
+assumption that each element of a group $G$ enters only one of the cosets. Since
+$G$ contains $n$ elements, and each of the cosets contains $m$ elements, it
+follows that $m=\frac nk$. The number $k$ is the index of the subgroup $H$. We
+see that the order of the subgroup is a divisor of the order of the group.
+
+Similarly, we can do the same with the right cosets, in constructing the cosets,
+we have a choice in selecting the element $g_i$. It can be shown that for an
+acceptable choice of the elements $g_i$, we can obtain the same set of cosets
+and the same decomposition. This follows directly from the following theorem.
+
+\begin{theorem}
+    Two cosets $g_iH$ and $g_kH$ (being $g_i, g_k$ any two elements of $G$)
+    either coincide or have no common elements. If these sets have at least
+    one common element $g_ih_\alpha=g_kh_\beta\rightarrow g_k=g_\ell h_\alpha
+    h_\beta^{-1}\implies g_k\in g_iH$.
+    However, any element of the set $g_kH$ can be represented in the form
+    $g_kh_j=g_ih_\alpha h_\beta h_\beta^{-1} h_j=g_ih_\gamma$ and will also belong
+    to $g_iH$.
+    The group $G$ can therefore uniquely decompose into (left or right) cosets
+    of subgroup $H$.
+\end{theorem}
+
+% subsection Cosets (end)
+
+\subsection{Conjugate elements and Class} % (fold)
+\label{sub:Conjugate elements and Class}
+
+Let $g$ be an element of the group $G$ and let us construct the element
+$g'=g_igg_i^{-1},\ g_i\in G$. The lements $g$ and $g'$ are said to be conjugate.
+Let us suppose that $g_i$ runs over all elements of the group $G$. We then obtain
+$n$ elements, some of which might be equal. Let the number of distinct elements
+be $k$, let us denote them by $g_1,g_2,\dots,g_k$. It is clear that this set
+includes all the elements of the group $G$, which are conjugate to the element
+$g$. All the elements of this set are mutually conjugate.
+
+Let
+\begin{align}
+    g_1&=g_\alpha gg_\alpha^{-1}\\
+    g_2&=g_\beta gg_\beta^{-1}.
+\end{align}
+Then we have
+\begin{align}
+    g&=g_{\alpha}^{-1}g_1g_\alpha\\
+    g_2&=g_\beta g_\alpha^{-1}g_1g_\alpha g_\beta^{-1}=
+    g_\beta g_\alpha^{-1}g_1\qty(g_\beta g_\alpha^{-1})^{-1}.
+\end{align}
+The set of all the mutually conjugate elements form \emph{a class}. Thus the
+elements $g_1,g_2,\dots,g_k$ form a class of conjugate elements. The number of
+elements in a class is its order. Any finite group can be denoted into a number
+of classes of conjugate elements. The unit element of a group is a class by itself.
+All the elements of a given class have the same order. The product of the elements
+of two classes consists of whole classes.
+\begin{proof}[]
+    \begin{align}
+        C_iC_j&=\sum_k hijk C_k
+    \end{align}
+    where $k$ is the multiplicity of the class.
+    If $g_p\in C_iC_j$, then the entire class $C_p$ to which $g_p$ belongs
+    itself belongs to the set $C_iC_j$. Let
+    \begin{align}
+        g_p=g_ig_j.
+        \begin{cases}
+            g_i\in C_i\\
+            g_j\in C_j
+        \end{cases}
+    \end{align}
+    We then have that for any $g\in G$,
+    \begin{align}
+        g^{-1}g_pg=g^{-1}g_igg^{-1}g_jg\in C_iC_j
+    \end{align}
+    it remains to show that each element of the class $C_p$ enters the set
+    $C_iC_j$ the same number of times. Suppose that the element $g_p$ enters
+    twice, $g_ig_j=g_p$ and $g'_ig'_j=g_p$, where $g_i\neq g'_i$ and
+    $g_j\neq g'_j$. Each element $g'^{-1}g_pg'\ (g'\in G)$ will $C_p$ then be
+    contained in $C_iC_j$ at least twice.
+    \begin{align}
+        g'^{-1}g_pg'&=g'^{-1}\qty(g_ig_j)g'=
+        \qty(g'^{-1}g_ig')\qty(g'^{-1}g_jg')\\
+        g'^{-1}g_pg'&=g'^{-1}\qty(g'_ig'_j)g'=
+        \qty(g'^{-1}g'_ig')\qty(g'^{-1}g'_jg')
+    \end{align}
+    if we consider the result, it follows that $g'^{-1}g_ig'\neq g'^{-1}g'_ig'$.
+    The element $g'^{-1}g_pg'$ will not be encountered more than twice, since
+    otherwise $g_p$ would be encountered more than twice, which contradicts the
+    original argument.
+\end{proof}
+
+% subsection Conjugate elements and Class (end)
+
+\subsection{Invariant subgroup}
+Let $H$ be a subgroup of the group $G$, and suppose that $g_i\in G$. Consider
+the set of elements $g_iHg^{-1}_i$, where $g_i$ is fixed. That set is also
+a group, since all the group axioms are satisfied for it.
+If $g_i\in H$, then the similar subgroup will coincide with $H$. If $g_i\notin H$,
+then in general we obtain a subgroup of which is different from $H$. When the
+subgroup $H$ coincide with all its similar subgroups, it is called an invariant
+subgroup or a normal divisor. An invariant subgroup is represented by the letter
+$N$. It follows from this definition that if an invariant subgroup contains an
+element $g\in G$, then it will also contain the entire class to which $g$
+belongs. The invariant subgroup consists of the whole class of the group.\\
+
+For an invariant subgroup of $G$, the left and right cosets coincide.
+\begin{align}
+    g_iN=g_iNg_i^{-1}g_i=Ng_i\qquad\text{since}\ g_iNg_i^{-1}=N.
+\end{align}
+Any group has two trivial invariant subgroups: the group itself and the unit
+element. Groups which do not have invariant subgroups other that the trivial
+ones are called simple.
+
+It would be useful to prove that $NN=N$.
+
+\subsection{The factor group} % (fold)
+\label{sub:The factor group}
+
+Let $N$ be an invariant subgroup of the group $G$. Let us decompose $G$ into the
+cosets $N$,
+\begin{align}
+    N, g_1N, g_2N,\dots,g_{k-1}N
+\end{align}
+and lets form a set $g_1Ng_2N$, which consists of different elements
+$g_1h_\alpha g_2h_\beta$, where $h_\alpha$ and $h_\beta$ run independently over
+the entire subgroup $N$. We can see that
+\begin{align}
+    g_1Ng_2N=g_1g_2g_2^{-1}Ng_2N=g_1g_2NN=g_1g_2N=g_3N
+\end{align}
+if the set $g_1Ng_2N$ is called the product of sets $g_1N$ and $g_2N$, then the
+product of two cosets of $N$ will again give a coset $N$, since the multiplication
+of a coset of $N$ by $N$ on the right and left does not change these cosets.
+\begin{align}
+    Ng_1N=g_1g_1^{-1}Ng_1N=g_1NN=g_1N
+\end{align}
+For each coset $g_iN$, there is a coset $g_i^{-1}N$ such that the product is
+equal to $N$.
+\begin{align}
+    g_i^{-1}Ng_iN=NN=N
+\end{align}
+
+The cosets of an invariant subgroup can be regarded as the elements of a new
+group in which $N$ plays the role of the unit element. This group is what we call
+\emph{the factor group} or \emph{the quotient group} of the invariant subgroup.
+Its order is equal to the order of $N$.
+
+% subsection The factor group (end)
+
+\subsection{Isomorphism and Homomorphism of groups} % (fold)
+\label{sub:Isomorphism and Homomorphism of groups}
+
+If between the elements of two groups there is a one-to-one correspondence which
+preserves group multiplication, then the group are \emph{isomorphic}. Let $G$ and
+$\widetilde{G}$ be two isomorphic groups, then if elements $g_i$ and $g_k$ of $G$
+correspond to the elements $\widetilde{g}_i$ and $\widetilde{g}_k$ of
+$\widetilde{G}$, i.e., $g_i\leftarrow\widetilde{g}_i$,
+$g_k\leftarrow\widetilde{g}_k$, then
+$g_1=g_ig_k\rightarrow\widetilde{g}_1=\widetilde{g}_i\widetilde{g}_k$. We can
+reduce the investigation of a given group to that of another group isomorphic to
+it.
+
+If to each element of $G$ there corresponds only one definite element of
+$\widetilde{G}$, and to each element of $\widetilde{G}$ a number of elements of
+$G$, and this correspondence is preserved under group multiplication,
+$\widetilde{G}$ if \emph{homomorphic} to $G$. Homomorphism has the following
+properties:
+\begin{itemize}
+    \item If $\widetilde{G}$ is homomorphic to $G$, then the element of G
+        corresponds to the unit element of $\widetilde{G}$.
+    \item The mutually reciprocal element of $G$ correspond to the mutually
+        reciprocal elements of $\widetilde{G}$.
+        \begin{align}
+            g_1g_k=E\qquad \widetilde{g}_i\widetilde{g}_k=\widetilde{E}.
+        \end{align}
+    \item All elements of $G$, to which corresponds to the unit element of
+        $\widetilde{G}$ form an invariant subgroup $N$ of the group $G$. Elements
+        $g'_1,g'_2,\dots,g'_j$ of $G$ correspond to $\widetilde{E}$ of
+        $\widetilde{G}$. The product $g'_ig'_k$ correspond to
+        $\widetilde{E}\widetilde{E}=\widetilde{E}$. $g'_ig'_k=g'_\ell$ and the
+        set $g'_1,g'_2,\dots,g'_j$ is closed with respect to group multiplication.
+\end{itemize}
+from (a), it contains a unit element, but since $\widetilde{E}$ is the inverse
+of itself and because of (b) for each element $g'_\ell$ we can find the inverse.
+From $\widetilde{g}\widetilde{E}\widetilde{g}^{-1}=\widetilde{E}$, where
+$\widetilde{g}$ is an arbitrary element of $\widetilde{G}$, it follows that
+$gg_ig^{-1}=g'_f$ for an arbitrary element of $G$.
+\begin{align}
+    g'_1,g'_2,\dots,g'_s
+\end{align}
+forms an \emph{invariant} subgroup of $G$.
+
+% subsection Isomorphism and Homomorphism of groups (end)
+
+\subsection{Exercices} % (fold)
+\label{sub:Exercices}
+
+Consider the group $S_6$, symmetric group of order $6$, with the elements
+$\{E, A, B, C, D, F\}$.
+\begin{center}
+\begin{tabular}{ c|c c c c c c }
+  & E & A & B & C & D & F \\
+ \hline
+    E & E & A & B & C & D & F \\
+    A & A & E & D & F & B & C \\
+    B & B & F & E & D & C & A \\
+    C & C & D & F & E & A & B \\
+    D & D & C & A & B & F & E \\
+    F & F & B & C & E & E & D
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+    \item Find the order of all the elements.
+    \item Find the possible subgroups.
+    \item Divide the group into cosets, and verify that this can be done in an
+        unique way.
+    \item Divide the group into classes of conjugate elements.
+    \item Find the invariant subgroups and verify that the left and right
+        cosets are the same.
+    \item Write down the multiplication table for the corresponding factor
+        groups.
+    \item Show that the abstract groups has the following realizations
+
+        \begin{enumerate}
+            \item Permutation group of $3$ elements.
+            \item Matrix group of order $2$: $S_6$ can also be 2x2 matrices
+                corresponding to rotations and reflections.
+        \end{enumerate}
+\end{enumerate}
+
+% Q1
+Recall the definition of the order of an element
+(\autoref{sub:The order of an element}).
+Then we can compute for all elements the smallest exponent $h$ such that $g^h=E$.
+From the table of multiplication, we can see that the order of all the elements
+except for the unit element and $F$ and $D$ is $2$. The order of the unit
+element is $1$. The order of $D$ and $F$ is $3$.
+
+% Q2
+Recall the definition of the subgroup (\autoref{sub:Sub-groups}). Then the
+subgroups are
+\begin{align*}
+    &\{E\}\\
+    &\{A,E\},\{B,E\},\{C,E\}\\
+    &\{D,F,E\}\\
+    &\{A,B,C,D,E,F\}
+\end{align*}
+
+% Q3
+Recall the definition of the cosets (\autoref{sub:Cosets}). Let's start with
+$H=\{E\}$. The left and right cosets are then equal and form $G$. Let's continue
+with $H=\{A,E\}$, we then have the left cosets $\{D,B\}, \{F,C\}$.
+
+% subsection Exercices (end)
