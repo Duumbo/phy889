@@ -1,0 +1,251 @@
+\section{Representations of point groups} % (fold)
+\label{sec:Representations of point groups}
+
+Consider a finite group $G$ with elements $g_1,g_2,\dots,g_m$. If a group $\hat{T}$
+of linear generators $\hat{T}g_i$ in space $R$ is homomorphic to $G$, then the
+group $\hat{T}$ is said to form a representation of $G$.
+Homomorphism leads to $\hat{T}g_i\cdot\hat{T}g_k=\hat{T}g_ig_k$. If $R$ is the
+$n$-dimensional vector space $R_n$, then any of its elements $x$ can be expanded
+in terms of $n$ unit vector $\vb{e}_k$ forming the basis of this space.
+\begin{align}
+    x&=x_1\vb{e}_1+x_2\vb{e}_2+\dots+x_n\vb{e}_n
+\end{align}
+
+The operator $\hat{T}g_i$ will be defined if we specify its effect on each
+of the unit vectors $\vb{e}_k$. Suppose that
+
+\begin{align}
+    \hat{T}g_i\vb{e}_k&=\sum_{r=1}^nD_{r,k}(g_i)\vb{e}_r.
+\end{align}
+
+To each element $g_i$ of our group, we can assign a matrix $\norm{D_{r,k}(g_i)}$.
+It is also clear that the unit element of the group can be associated with a unit
+matrix, and the inverse elements can be associated with inverse matrices.
+
+Let us show now that for the matrices $D$ we have
+\begin{align}
+    D(g_i)D(g_j)=D(g_ig_j)
+\end{align}
+If we apply $\hat{T}g_i$ and $\hat{T}g_j$ successively to the unit vector
+$\vb{e}_k$, we obtain
+\begin{align}
+    \hat{T}g_i\hat{T}g_j\vb{e}_k&=\hat{T}g_i\sum_rD_{r,k}(g_i)\vb{e}_r\\
+                                &=\sum_{f,r}D_{r,k}(g_j)D_{f,r}(g_i)\vb{e}_f.
+\end{align}
+On the other hand
+\begin{align}
+    \hat{T}g_i\hat{T}g_i\vb{e}_k&=\hat{T}_{g_ig_j}\vb{e}_k\\
+                                &=\sum_fD_{f,k}(g_ig_j)\vb{e}_f.
+\end{align}
+So $D(g_i)D(g_j)=D(g_ig_j)$ is valid. We will show now that the matrices $D(g_i)$
+form a representation of order $n$ of the group $G$. The space $R_n$ is the
+representation space, and the basis of this space is the basis of the
+representation. By operating with $\hat{T}g_i$ on an arbitrary vector $\vb{x}$ of
+space $R_n$, we obtain
+\begin{align}
+    \hat{T}g_i\vb{x}&=\sum_kx_k\hat{T}g_i\vb{e}_k\\
+                    &=\sum_{k,r}x_kD_{r,k}(g_i)\vb{e}_r\\
+                    &=\sum_rx'_r\vb{e}_r
+\end{align}
+where $x'_r=\sum_kD_{r,k}(g_i)x_k$. Let us consider now the change in the
+representation matrix which occurs when a new basis $\vb{e}'_i$ is taken in the
+space $R_n$, where the new basis is related to $\vb{e}_k$ by the linear
+transformation
+\begin{align}
+    \vb{e}'_i&=\sum_k V_{ki}\vb{e}_k\label{star}\\
+    \vb{e}_i&=\sum_k\{V^{-1}\}_{k,i}\vb{e}'_k.
+\end{align}
+Let us now apply $\hat{T}g_i$ to $\vb{e}'_i$ by using (\autoref{star})
+\begin{align}
+    \hat{T}g_i\vb{e}'_i&=\sum_kV_{ki}\hat{T}g_i\vb{e}_k\\
+                       &=\sum_{k,s}V_{k,i}D_{s,k}(g_i)\vb{e}_s\\
+                       &=\sum_{k,s,r}V_{k,i}D_{s,k}\{V^{-1}\}_{r,s}\vb{e}'_r\\
+                       &=\sum_r \{V^{-1}DV\}_{r,i}\vb{e}'_r
+\end{align}
+Thus the representation matrices undergo a similar transformation when we
+transform to the new basis. The representation by the matrices $V^{-1}DV$ is
+equivalent to the representation by matrices $D$. If the representation
+matrices are all unitary, the representation is said to be unitary.
+
+\subsection{Examples of representation} % (fold)
+\label{sub:Examples of representation}
+
+\begin{itemize}
+    \item The trivial representation, which is associated with the unit matrix.
+    \item If the group elements are linear transformations, the matrices of these
+        transformations themselves form a representation which is isomorphic to
+        the group.
+\end{itemize}
+These are the trivial invariant subgroups.
+
+\begin{itemize}
+    \item Let's consider the derivation of one of the representations of the group
+        $C$ of matrices of linear transformations of invariables
+        $x_1,x_2,\dots,x_n$, $x'_i=\sum_kC_{i,k}x_k$. But now we are also going
+        to consider the quadratic form
+        \begin{align}
+            \sum_{i,k}a_{i,k}x_ix_k\qquad a_{i,k}=a_{k,i}
+        \end{align}
+        Transformations of the variables $x_i$ induces a transformation of the
+        coefficients of this form. If we substitute
+        $x'_j=\sum_s\{C^{-1}\}_{j,s}x'_s$, we obtain the following quadratic form
+        \begin{align}
+            \sum_{i,k,j,\ell}a_{i,k}\{C^{-1}\}_{i,j}x'_j\{C^{-1}\}_{k,\ell}x'_\ell
+            &=\sum_{j,\ell}a'_{j,\ell}x'_jx'_\ell,
+        \end{align}
+        where
+        \begin{align}
+            a'_{j,\ell}&=\sum_{i,k}a_{i,k}\{C^{-1}\}_{i,j}\{C^{-1}\}_{k,\ell}
+        \end{align}
+        If we use the notation $A=\norm{a_{i,k}}$, we can write down the transformation
+        rule for the coefficients $a_{i,k}$ in the matrix form $A'=C^{-1}AC$,
+        where $C^{-1}$ is the transpose of $C$. Let's now apply the
+        transformations $C_1$ and $C_2$ to $x_1,x_2,\dots,x_n$.
+        \begin{align}
+            A''&=C_2^{-1}A'C_2=C_2^{-1}C_1^{-1}AC_1C_2\\
+            A''&=\qty(C_2C_1)^{-1}A\qty(C_2C_1)
+        \end{align}
+        Applications of $C_1$ and $C_2$ is equivalent to $C_2C_1$. The
+        transformation of the coefficients of the \emph{quadratic form}
+        form themselves a representation.
+\end{itemize}
+
+% subsection Examples of representation (end)
+
+\subsection{Schrödinger equation and its eigenfunctions} % (fold)
+\label{sub:Schrödinger equation and its eigenfunctions}
+
+Let's consider a quantum mechanical system described by the Schrödinger equation
+
+\begin{align}
+    \qty(\frac{-\hbar^2}{2m}\nabla^2+V(\vb{r}))\psi(\vb{r})=E\psi(\vb{r})
+\end{align}
+We shall assume that the symmetry group for this system consists of orthogonal
+transformation $u_s$, defined by
+\begin{align}
+    \vb{r}'=u_s\vb{r}\\
+    \vb{r}=u_s^{-1}\vb{r}'
+\end{align}
+Since the laplace operator is invariant under any orthogonal transformation of
+coordinates, this yields to
+\begin{align}
+    \qty(-\frac{\hbar^2}{2m}\nabla^2+V\qty(u_s^{-1}\vb{r}))\psi(u_s^{-1}\vb{r})=E\psi
+    \qty(u_s^{-1}\vb{r})
+\end{align}
+Moreover since the Schrödinger equation is invariant under the $u_s$ transformation
+we must have
+\begin{align}
+    V\qty(u_s^{-1}\vb{r})V(\vb{r})
+\end{align}
+and therefore, the transformed wave-function
+\begin{align}
+    \psi'(\vb{r})&=\hat{T}_{u_s}\psi(\vb{r})=\psi(u_s^{-1}\vb{r})
+\end{align}
+is also an eigenfunction of the Schrödinger equation with the same eigenvalue.
+Let's now consider $\psi_1(\vb{r}),\dots,\psi_k(\vb{r})$, a complete set of
+orthonormal eigenfunctions of this equation, corresponding to eigenvalue $E$. We
+will see that these functions form a basis of a group representation.
+Each of the transformed functions can be written in the form
+\begin{align}
+    \hat{T}_{u_s}\psi_i(\vb{r})=\psi_i\qty(u^{-1}_s\vb{r})=\sum_{j=1}^kD_{j,k}
+    (u_s)\psi_j(\vb{r})
+\end{align}
+$\hat{T}_{u_s}\psi_i(\vb{r})$ must also be orthonormal, since a change of the variables through an orthonormal transformation conserves the
+orthonormalisation condition.
+\begin{align}
+    \int\psi_i(u_s\vb{r}')\psi_j(u_s\vb{r}')\dd{\vb{r}}=
+    \int\psi_i(\vb{r})\psi_j(\vb{r})\dd{\vb{r}}
+\end{align}
+Matrices $\norm{D_{i,j}(u_s)}$ should be unitary, and hence, to each
+transformation $u_s$ form the symmetry group of the Schrödinger equation, we
+can assign a unitary matrix of order $k$. Let us consider $u_s$ and $u_t$ to be
+transformations in the group. Their successive applications
+\begin{align}
+    \hat{T}_{u_s}\hat{T}_{u_t}\psi_i(\vb{r})&=
+    \hat{T}_{u_s}\psi_i(u^{-1}_t\vb{r})\\
+                                            &=\psi_i(u^{-1}_tu^{-1}_s\vb{r})\\
+                                            &=\psi_i\qty((u_su_t)^{-1}\vb{r})\\
+                                            \sum_{\ell=1}^kD_{\ell,\ell}(u_su_t)\psi_\ell(\vb{r}).
+\end{align}
+On the other hand
+\begin{align}
+    \hat{T}_{u_s}\hat{T}_{u_t}\psi_i(\vb{r})&=\hat{T}_{u_s}\sum_{j=1}^kD_{j,i}(u_t)\psi_j(\vb{r})\\
+                                            &\sum_{j=1}^kD_{j,i}(u_t)\sum_{\ell=1}^kD_{\ell,j}(u_s)\psi_\ell(\vb{r})\\
+                                            &=\sum_{\ell=1}^k\{D(u_s)D(u_t)\}_{\ell,i}\psi_\ell(\vb{r}).
+\end{align}
+$\implies\ $ With each energy eigenvalue, we can associate a representation and
+establish the possible types of symmetry of the wave functions without
+explicitly solving the Schrödinger equation.
+% subsection Schrödinger equation and its eigenfunctions (end)
+
+\subsection{Existence of an equivalent unitary representation} % (fold)
+\label{sub:Existance of an equivalent unitary representation}
+
+We shall show that any representation of a finite group is equivalent to a
+unitary representation.
+Suppose that we have a representation $D$ of the group $G$ consisting of the
+elements $g_1,g_2,\dots,g_m$. We regard the representation matrices $D(g_i)$
+as the transformation matrices in a $n$-dimensionnal space $R_n$
+$\vb{x}(x_1,x_2,\dots,x_n)$ and $\vb{y}(y_1,y_2,\dots,y_n)$ are vectors in this space.
+The scalar product will be defined
+\begin{align}
+    (\vb{x},\vb{y})=x_1y_1+x_2y_2+\dots+x_ny_n
+\end{align}
+and $D(g_i)$ transforms the vector $\vb{x}$ into the vector $\vb{x}^{(i)}$
+\begin{align}
+    \vb{x}^{(i)}=D(g_i)\vb{x}\\
+    x_\alpha^{(i)}=\sum_\beta D_{\alpha,\beta}(g_i)x_\beta.
+\end{align}
+Let's suppose that $D(g_i)$ is not unitary, and it does not conserve the scalar
+product. We shall show that it is possible to choose a new basis in $R_n$ such
+that the transformation matrices for vector components will be unitary.
+We take the average of the scalar product over the group and construct the
+expression
+\begin{align}
+    \sum_{i=1}^m\qty(D(g_i)\vb{x},D(g_i)\vb{y})&=\sum_{i=1}^m\qty(\vb{x}^{(i)},\vb{y}^{(i)}).
+\end{align}
+This can be written as
+\begin{align}
+    \sum_{i=1}^m(\vb{x}^{(i)},\vb{y}^{(i)})=\qty(L\vb{x},L\vb{y})
+\end{align}
+where $L$ is a linear transformation.
+\begin{align}
+    \sum_{i=1}^m\qty(D(g_i)\vb{x},D(g_i)\vb{y})=\qty(\sum_{i=1}^mD^\dagger(g_i)D(g_i)\vb{x},\vb{y})
+\end{align}
+The matrix $D^\dagger(g_i)D(g_i)$ is Hermitian, and it can be reduced to a
+diagonal form through a unitary transformation V
+\begin{align}
+    d&=V^{-1}\sum_{i=1}^mD^\dagger(g_i)D(g_i)V.
+\end{align}
+If we substitute $D(g_i)=V^{-1}D(g_i)V$, we can write
+\begin{align}
+    d&=\sum_{i=1}^mV^{-1}D^\dagger(g_i)VV^{-1}D(g_i)V\\
+     &=\sum_{i=1}^m\widetilde{D}^\dagger(g_i)\widetilde{D}(g_i)
+\end{align}
+and the diagonal elements of the matrices $d$ are given by
+\begin{align}
+    d_{\alpha,\alpha}&=\sum_{i=1}^m\sum_{\beta=1}^n\widetilde{D}^{\dagger}_{\alpha,\beta}(g_i)\widetilde{D}_{\alpha,\beta}(g_i)\\
+                     &=\sum_{i=1}^m\sum_{\beta=1}^n\abs{\widetilde{D}_{\alpha,\beta}(g_i)}^2.
+\end{align}
+Let us now determine the diagonal matrix $d^{1/2}$, whose  elements are
+$\{d^{1/2}\}_{\alpha,\alpha}=\sqrt{d_{\alpha,\alpha}}$.
+So $d^{1/2}d^{1/2}=d$ and if we use the self = conjoint property of $d^{1/2}$, we
+have
+\begin{align}
+    \sum_{i=1}^m\qty(\vb{x}^(i),\vb{y}^(i))&=\qty(VdV^{-1}\vb{x},\vb{y})\\
+                                           &=\qty(d^{1/2}d^{1/2}V^{-1}\vb{x},V^{-1}\vb{y})\\
+                                           &=\qty(d^{1/2}V^{-1}\vb{x},d^{1/2}V^{-1}\vb{y}).
+\end{align}
+We can go to
+\begin{align}
+    \qty(L\vb{x},L\vb{y})\rightarrow L=d^{1/2}V^{-1}.
+\end{align}
+We can also show that the representation of $G$ given by the matrices $LDL^{-1}$
+is unitary. For an arbitrary element $g_k$ of $G$,
+\begin{align}
+    \qty(LD(g_k)\vb{x},LD(g_k)\vb{y})=\qty(L\vb{x},L\vb{y}).
+\end{align}
+Prove it for next class.
+
+% subsection Existance of an equivalent unitary representation (end)
+% section Representations of point groups (end)
