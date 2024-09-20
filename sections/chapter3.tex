@@ -78,41 +78,40 @@ matrices are all unitary, the representation is said to be unitary.
 \end{itemize}
 These are the trivial invariant subgroups.
 
-\begin{itemize}
-    \item Let's consider the derivation of one of the representations of the group
-        $C$ of matrices of linear transformations of invariables
-        $x_1,x_2,\dots,x_n$, $x'_i=\sum_kC_{i,k}x_k$. But now we are also going
-        to consider the quadratic form
-        \begin{align}
-            \sum_{i,k}a_{i,k}x_ix_k\qquad a_{i,k}=a_{k,i}
-        \end{align}
-        Transformations of the variables $x_i$ induces a transformation of the
-        coefficients of this form. If we substitute
-        $x'_j=\sum_s\{C^{-1}\}_{j,s}x'_s$, we obtain the following quadratic form
-        \begin{align}
-            \sum_{i,k,j,\ell}a_{i,k}\{C^{-1}\}_{i,j}x'_j\{C^{-1}\}_{k,\ell}x'_\ell
-            &=\sum_{j,\ell}a'_{j,\ell}x'_jx'_\ell,
-        \end{align}
-        where
-        \begin{align}
-            a'_{j,\ell}&=\sum_{i,k}a_{i,k}\{C^{-1}\}_{i,j}\{C^{-1}\}_{k,\ell}
-        \end{align}
-        If we use the notation $A=\norm{a_{i,k}}$, we can write down the transformation
-        rule for the coefficients $a_{i,k}$ in the matrix form $A'=C^{-1}AC$,
-        where $C^{-1}$ is the transpose of $C$. Let's now apply the
-        transformations $C_1$ and $C_2$ to $x_1,x_2,\dots,x_n$.
-        \begin{align}
-            A''&=C_2^{-1}A'C_2=C_2^{-1}C_1^{-1}AC_1C_2\\
-            A''&=\qty(C_2C_1)^{-1}A\qty(C_2C_1)
-        \end{align}
-        Applications of $C_1$ and $C_2$ is equivalent to $C_2C_1$. The
-        transformation of the coefficients of the \emph{quadratic form}
-        form themselves a representation.
-\end{itemize}
+\subsubsection{Quadratic Form}
+Let's consider the derivation of one of the representations of the group
+$C$ of matrices of linear transformations of invariables
+$x_1,x_2,\dots,x_n$, $x'_i=\sum_kC_{i,k}x_k$. But now we are also going
+to consider the quadratic form
+\begin{align}
+    \sum_{i,k}a_{i,k}x_ix_k\qquad a_{i,k}=a_{k,i}
+\end{align}
+Transformations of the variables $x_i$ induces a transformation of the
+coefficients of this form. If we substitute
+$x'_j=\sum_s\{C^{-1}\}_{j,s}x'_s$, we obtain the following quadratic form
+\begin{align}
+    \sum_{i,k,j,\ell}a_{i,k}\{C^{-1}\}_{i,j}x'_j\{C^{-1}\}_{k,\ell}x'_\ell
+    &=\sum_{j,\ell}a'_{j,\ell}x'_jx'_\ell,
+\end{align}
+where
+\begin{align}
+    a'_{j,\ell}&=\sum_{i,k}a_{i,k}\{C^{-1}\}_{i,j}\{C^{-1}\}_{k,\ell}
+\end{align}
+If we use the notation $A=\norm{a_{i,k}}$, we can write down the transformation
+rule for the coefficients $a_{i,k}$ in the matrix form $A'=C^{-1}AC$,
+where $C^{-1}$ is the transpose of $C$. Let's now apply the
+transformations $C_1$ and $C_2$ to $x_1,x_2,\dots,x_n$.
+\begin{align}
+    A''&=C_2^{-1}A'C_2=C_2^{-1}C_1^{-1}AC_1C_2\\
+    A''&=\qty(C_2C_1)^{-1}A\qty(C_2C_1)
+\end{align}
+Applications of $C_1$ and $C_2$ is equivalent to $C_2C_1$. The
+transformation of the coefficients of the \emph{quadratic form}
+form themselves a representation.
 
 % subsection Examples of representation (end)
 
-\subsection{Schrödinger equation and its eigenfunctions} % (fold)
+\subsubsection{Schrödinger equation and its eigenfunctions} % (fold)
 \label{sub:Schrödinger equation and its eigenfunctions}
 
 Let's consider a quantum mechanical system described by the Schrödinger equation
@@ -248,4 +247,77 @@ is unitary. For an arbitrary element $g_k$ of $G$,
 Prove it for next class.
 
 % subsection Existance of an equivalent unitary representation (end)
+
+\subsection{Reducible and irreducible representations} % (fold)
+\label{sub:Reducible and irreducible representations}
+
+Suppose that a representation $D$ of the group $G$ is given in a space $R_n$. If
+in the space $R_n$ there is a subspace $R_k$, with $k<n$, which is invariant
+under all transformations $D$, i.e., if for $x\in R_k$ we have a $D_x\in R_k$,
+the representation is \emph{reducible}. Let us take the first $k$ unit vectors
+in the space $R_n$ as the unit vectors of the subspace $R_k$. The representation
+matrix must have the following form:
+\begin{align}
+    \mqty(D_{11} & D_{12} & \dots & D_{jk} & D_{1 k+1} & \dots & D_{1n}\\
+    \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+    D_{k1} & D_{k2} & \dots & D_{kk} & D_{kk+1} & \dots & D_{kn}\\
+    0 & \dots & \dots & 0 & D_{k+1 k+1} & \dots & D_{k+1n}\\
+    \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots\\
+    0 & \dots & \dots & 0 & D_{nk+1} & \dots &D_{nn}
+    )
+\end{align}
+
+If on the other hand we cannot define an invariant subspace in $R_n$,
+the representation is \emph{irreducible}. We shall show that if a reducible
+representation $D$ is unitary, the orthogonal complement of the subspace $R_k$,
+which we denote $R_{a-k}$, is also invariant under the transformation of $D$.
+
+Let us consider $x\in R_k,y\in R_{n-k}$ and $(x,y)=0$. Since the subspace $R_k$
+is invariant $(D_g(x),y)=0)$, but as we know
+
+\begin{align}
+    \qty(D(g)x,y)&=\qty(x,D^\dagger(g)y)=(x,D^{-1}(g)y)\\
+                 &=(x,D(g^{-1})y)=0\label{starrr},
+\end{align}
+and hence $D(g^{-1})y\in R_{n-k}$. When $g$ runs over the entire group,
+the inverse element $g^{-1}$ will also do so. So (\autoref{starrr}) is satisfied
+for all matrices of the representation in question, and the invariance $R_{n-k}$
+is proved.
+
+If we take the unit vectors of the subspace $R_k$, as the first $k$ vectors, and 
+the remaining $n-k$ unit vectors as the vectors of the subspace $R_{n-k}$, the
+representation matrix will be quasi-diagonal.
+
+\begin{align}
+    \mqty(D_{11} & D_{12} & \dots & D_{jk} & 0 & \dots & 0\\
+    \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+    D_{k1} & D_{k2} & \dots & D_{kk} & 0 & \dots & 0\\
+    0 & \dots & \dots & 0 & D_{k+1 k+1} & \dots & D_{k+1n}\\
+    \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots\\
+    0 & \dots & \dots & 0 & D_{nk+1} & \dots &D_{nn}
+    )
+\end{align}
+
+If the space $R$ can be resolved into invariant subspaces, in each of them an
+irreducible representation is realised, then the representation $D$ is
+\emph{fully reducible}. With a suitable choice of unit vectors, the matrix of
+this representation is block diagonal. From this discussion, it follows that
+
+\begin{itemize}
+    \item A unitary representation of a group is always irreducible or fully
+        reducible.
+    \item Any representation of a finite group is either again irreducible or
+        fully reducible.
+\end{itemize}
+
+If a representation $D$ is reducible, its matrices can be reduced to a
+quasi-diagonal form by going under the new system of unit vectors.
+We note that in this case, the representation matrices undergo the similarity
+transformation: $D\rightarrow V^{-1}DV$, where $V$ is the unitary matrix relating
+the unit vectors of the old and new basis.
+
+A representation $D$ is reducible if there exists a non-singular matrix $V$
+such that $V^{-1}DV$ is block-diagonal.
+
+% subsection Reducible and irreducible representations (end)
 % section Representations of point groups (end)
