@@ -284,7 +284,7 @@ the inverse element $g^{-1}$ will also do so. So (\autoref{starrr}) is satisfied
 for all matrices of the representation in question, and the invariance $R_{n-k}$
 is proved.
 
-If we take the unit vectors of the subspace $R_k$, as the first $k$ vectors, and 
+If we take the unit vectors of the subspace $R_k$, as the first $k$ vectors, and
 the remaining $n-k$ unit vectors as the vectors of the subspace $R_{n-k}$, the
 representation matrix will be quasi-diagonal.
 
@@ -320,4 +320,121 @@ A representation $D$ is reducible if there exists a non-singular matrix $V$
 such that $V^{-1}DV$ is block-diagonal.
 
 % subsection Reducible and irreducible representations (end)
+\subsection{Schur's First Lemma} % (fold)
+\label{sub:Schur's First Lemma}
+
+\begin{epigraph}
+    A matrix which commutes with all the matrices of an irreducible\\
+    representation is a multiple of the unit matrix.
+\end{epigraph}
+
+Let $D(y)$ represent the matrices of an irreducible representation of order $n$
+of the group $G$, $g\in G$. Let's suppose the matrix $M$ commutes with all the
+matrices  $D(g)MD(g)=D(g)M$. Let $R_n$ represent the space in which $D(g)$ is
+realised. In this space, there should at least be one eigenvector of $M$, we
+denote it $x$, such that $M\bar{x}=\lambda\bar{x}$. If we apply the transformation with the representation matrix $D(g)$ to the vector $x$ will have that
+\begin{align}
+    D(g)\bar{x}=\bar{x}g.
+\end{align}
+This resulting vector is also an eigenvector of $M$ with the same eigenvalue
+$\lambda$.
+\begin{align}
+    M\bar{x}_g&=MD(g)x=\lambda D(g)\bar{x}\\
+              &=\lambda\bar{x}_g.
+\end{align}
+It follows that the space of eigenvectors of the matrix $M$ corresponding to
+the same eigenvalue is invariant under the transformation $D(g)$. But since $D(g)$
+is irreducible, it follows that this subspace should coincide with the entire
+$R_n$, and the matrix $M$ multiplying by any vector of the space $R_n$ by
+$\lambda$, should be of the form
+\begin{align}
+    M=\mqty(\lambda&\dots&0\\0&\ddots&0\\0&\dots&\lambda)
+\end{align}
+If a representation is fully reducible, i.e., its matrices have the quasi-diagonal
+form, one will always find a matrix which is not a multiple of the unit matrix
+and which commutes with all the matrices of this representation. Once we verify
+that this matrix can be taken to be the diagonal matrix in which diagonal element
+corresponding to the different blocks are not equal to one another.
+% subsection Schur's First Lemma (end)
+
+\subsection{Schur's Second Lemma} % (fold)
+\label{sub:Schur's Second Lemma}
+\begin{theorem}
+    Let $D^{(j)}(g)$ and $D^{(i)}(g)$ be the matrices of two irreducible non-equivalent
+    representations of a group $G$ of order $n_1$ and $n_2$, respectively. Then, any
+    rectangular matrix $M$ with $n_1$ columns and $n_2$ rows which satisfies this
+    equation
+    \begin{align}
+        MD^{(i)}(g)=D^{(i)}(g)M,\qquad\forall g\in G
+    \end{align}
+    is a null matrix.
+\end{theorem}
+
+\begin{proof}
+Let us take the Hermitian conjugate on both sides
+\begin{align}
+    D^{(i)\dagger}(g)M^\dagger=M^\dagger D^{(i)\dagger}(g)
+\end{align}
+$D^{(i)}(g)$ and $D^{(j)}(g)$ are unitary.
+\begin{align}
+    D^{(1)-1}(g)M^\dagger=M^\dagger D^{(2)-1}(g)\\
+    D^{(1)}(g^{-1})M^\dagger=M^\dagger D^{(2)}(g^{-1})
+\end{align}
+If $g$ runs over the entire group, then $g^{-1}$ also do so. (\autoref{star})
+can also be re-written as
+\begin{align}
+    D^{(1)}(g)M^\dagger=M^\dagger D^{(2)}(g).
+\end{align}
+Let's multiply both sides on the left by the matrix $M$.
+\begin{align}
+    MD^{(2)}M^\dagger&=MM^\dagger D^{(2)}(g)\\
+    D^{(2)}(g)MM^\dagger&=MM^\dagger D^{(2)}(g)
+\end{align}
+According to Schur's first lemma, we conclude that $MM^\dagger$ must be a
+multiple of the unit matrix.
+\begin{align}
+    MM^\dagger&=\lambda E_{n_2}
+\end{align}
+First case: $n_1=n_2$. In this case, $M$ must be singular $\det M=0$.
+If this was not the case, the $MD^{(2)}(g)=D^{(2)}(g)M$ should yield the
+condition for the equivalence of the representation
+\begin{align}
+    D^{(1)}=M^{-1}D^{(2)}M.
+\end{align}
+But this would mean $D^{(1)}$ and $D^{(2)}$ are isomorphic, which is not true
+by hypothesis. $M$ cannot be invertible $\implies\det M=0$.
+If we take
+\begin{align}
+    MM^\dagger=\lambda E_{n_2}\\
+    \lambda=\sum_j M_{ij}\bar{M}_{ij}\\
+    \det M\det M^\dagger=\lambda^{n_2}\\
+    \lambda=0=\sum_j\abs{M_{ij}}^2\implies M_{ij}=0
+\end{align}
+In the other case, $n_2>n_1$. We augment the matrix $M$ so that it becomes a
+square matrix with $n_2n_1$ rows and columns. We do the same to $M^\dagger$.
+If we denote the two matrices $\widetilde{M}$ and $\widetilde{M}^\dagger$,
+\begin{align}
+    \widetilde{M}\widetilde{M}^\dagger = \lambda E_{n_2}\\
+    \det\widetilde{M}^\dagger=\det\widetilde{M}=0\implies M_{ij}=0.
+\end{align}
+\end{proof}
+
+% subsection Schur's Second Lemma (end)
+
+\begin{exercise}
+    Prove that any representation of a simple group (one without a normal divisor)
+    is isomorphic to the group
+    itself.
+\end{exercise}
+
+\begin{exercise}
+    Use Schur's first lemma to show that all irreducible representations of an
+    Abelian group are of order $1$.
+\end{exercise}
+
+\begin{exercise}
+    Use Schur's first lemma to show that the sum of irreducible representation
+    matrices corresponding to the elements of a given class is a multiple of the
+    unit matrix.
+\end{exercise}
 % section Representations of point groups (end)
