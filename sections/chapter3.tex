@@ -395,28 +395,32 @@ multiple of the unit matrix.
 \begin{align}
     MM^\dagger&=\lambda E_{n_2}
 \end{align}
-First case: $n_1=n_2$. In this case, $M$ must be singular $\det M=0$.
-If this was not the case, the $MD^{(2)}(g)=D^{(2)}(g)M$ should yield the
-condition for the equivalence of the representation
-\begin{align}
-    D^{(1)}=M^{-1}D^{(2)}M.
-\end{align}
-But this would mean $D^{(1)}$ and $D^{(2)}$ are isomorphic, which is not true
-by hypothesis. $M$ cannot be invertible $\implies\det M=0$.
-If we take
-\begin{align}
-    MM^\dagger=\lambda E_{n_2}\\
-    \lambda=\sum_j M_{ij}\bar{M}_{ij}\\
-    \det M\det M^\dagger=\lambda^{n_2}\\
-    \lambda=0=\sum_j\abs{M_{ij}}^2\implies M_{ij}=0
-\end{align}
-In the other case, $n_2>n_1$. We augment the matrix $M$ so that it becomes a
-square matrix with $n_2n_1$ rows and columns. We do the same to $M^\dagger$.
-If we denote the two matrices $\widetilde{M}$ and $\widetilde{M}^\dagger$,
-\begin{align}
-    \widetilde{M}\widetilde{M}^\dagger = \lambda E_{n_2}\\
-    \det\widetilde{M}^\dagger=\det\widetilde{M}=0\implies M_{ij}=0.
-\end{align}
+\begin{description}
+    \item[Case 1: $n_1=n_2$]
+    In this case, $M$ must be singular $\det M=0$.
+    If this was not the case, the $MD^{(2)}(g)=D^{(2)}(g)M$ should yield the
+    condition for the equivalence of the representation
+    \begin{align}
+        D^{(1)}=M^{-1}D^{(2)}M.
+    \end{align}
+    But this would mean $D^{(1)}$ and $D^{(2)}$ are isomorphic, which is not true
+    by hypothesis. $M$ cannot be invertible $\implies\det M=0$.
+    If we take
+    \begin{align}
+        MM^\dagger=\lambda E_{n_2}\\
+        \lambda=\sum_j M_{ij}\bar{M}_{ij}\\
+        \det M\det M^\dagger=\lambda^{n_2}\\
+        \lambda=0=\sum_j\abs{M_{ij}}^2\implies M_{ij}=0
+    \end{align}
+\item[Case 2: $n_2>n_1$]
+    In this case, we augment the matrix $M$ so that it becomes a
+    square matrix with $n_2n_1$ rows and columns. We do the same to $M^\dagger$.
+    If we denote the two matrices $\widetilde{M}$ and $\widetilde{M}^\dagger$,
+    \begin{align}
+        \widetilde{M}\widetilde{M}^\dagger = \lambda E_{n_2}\\
+        \det\widetilde{M}^\dagger=\det\widetilde{M}=0\implies M_{ij}=0.
+    \end{align}
+\end{description}
 \end{proof}
 
 % subsection Schur's Second Lemma (end)
