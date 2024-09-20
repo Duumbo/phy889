@@ -360,12 +360,12 @@ corresponding to the different blocks are not equal to one another.
 \subsection{Schur's Second Lemma} % (fold)
 \label{sub:Schur's Second Lemma}
 \begin{theorem}
-    Let $D^{(j)}(g)$ and $D^{(i)}(g)$ be the matrices of two irreducible non-equivalent
+    Let $D^{(1)}(g)$ and $D^{(2)}(g)$ be the matrices of two irreducible non-equivalent
     representations of a group $G$ of order $n_1$ and $n_2$, respectively. Then, any
     rectangular matrix $M$ with $n_1$ columns and $n_2$ rows which satisfies this
     equation
     \begin{align}
-        MD^{(i)}(g)=D^{(i)}(g)M,\qquad\forall g\in G
+        MD^{(1)}(g)=D^{(2)}(g)M,\qquad\forall g\in G
     \end{align}
     is a null matrix.
 \end{theorem}
@@ -373,15 +373,15 @@ corresponding to the different blocks are not equal to one another.
 \begin{proof}
 Let us take the Hermitian conjugate on both sides
 \begin{align}
-    D^{(i)\dagger}(g)M^\dagger=M^\dagger D^{(i)\dagger}(g)
+    D^{(1)\dagger}(g)M^\dagger=M^\dagger D^{(2)\dagger}(g)
 \end{align}
-$D^{(i)}(g)$ and $D^{(j)}(g)$ are unitary.
+$D^{(1)}(g)$ and $D^{(2)}(g)$ are unitary.
 \begin{align}
     D^{(1)-1}(g)M^\dagger=M^\dagger D^{(2)-1}(g)\\
-    D^{(1)}(g^{-1})M^\dagger=M^\dagger D^{(2)}(g^{-1})
+    D^{(1)}(g^{-1})M^\dagger=M^\dagger D^{(2)}(g^{-1})\label{starr}
 \end{align}
-If $g$ runs over the entire group, then $g^{-1}$ also do so. (\autoref{star})
-can also be re-written as
+If $g$ runs over the entire group, then $g^{-1}$ also does so, which lets us
+re-write (\autoref{starr}) as
 \begin{align}
     D^{(1)}(g)M^\dagger=M^\dagger D^{(2)}(g).
 \end{align}
