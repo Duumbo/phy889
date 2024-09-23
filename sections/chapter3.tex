@@ -425,6 +425,157 @@ multiple of the unit matrix.
 
 % subsection Schur's Second Lemma (end)
 
+\subsection{Orthogonality relations of matrix elements of irreducible representation} % (fold)
+\label{sub:Orthogonality relations of matrix elements of irreducible representation}
+
+We are going to use Schur's first lemma to establish relations between matrix
+elements of irreducible representations. Let $D^{(i)}(g)$ and $D^{(j)}(g)$ be
+the matrices of $2$ irreducible non-equivalent unitary representations of a group
+$G$ consisting of $m$ elements, with $n_i$ and $n_j$ being the orders of the
+representations. We can show that the following relationship between the elements
+of $D^{(i)}(g)$ and $D^{(j)}(g)$ exists.
+\begin{align}
+    \sum_{g\in G}D^{(i)}_{\mu\nu}(g)\bar{D}^{(j)}_{\alpha\beta}(g)&=0\qquad i\neq j\\
+    \sum_{g\in G}D^{(i)}_{\mu\nu}(g)\bar{D}^{(i)}_{\alpha\beta}(g)&=\frac m{n_i}
+    \delta_{\mu\alpha}\delta_{\nu\beta}
+\end{align}
+
+\begin{proof}
+    Let's consider the matrix $M$
+    \begin{align}
+        M&=\sum_{g\in G}D^{(i)}(g)XD^{(j)}(g^{-1}),
+    \end{align}
+    with $X$ being an arbitrary matrix. We can prove that
+    \begin{align}
+        D^{(i)}M&=MD^{(j)}\\
+        D^{(i)}(g')M&=D^{(i)}(g')\qty(\sum_{g\in G}D^{(i)}(g)XD^{(j)}(g^{-1}))\\
+                    &=\sum_{g\in G}D^{(i)}(g')D^{(i)}(g)XD^{(j)}(g^{-1})D^{(j)}
+                    (g'^{-1})D^{(j)}(g')\\
+                    &=\sum_{g\in G}D^{(i)}(g'')XD^{(j)}(g''^{-1})\\
+                    &=MD^{(j)}(g').
+    \end{align}
+    It follows from Schur's second lemma that $M$ is a null matrix,
+    \begin{align}
+        M_{\mu\alpha}&=\sum_{g\in G}\sum_{s,k}D^{(i)}_{\mu s}(g)X_{sk}D^{(j)}_{k\alpha}(g^{-1})=0.
+    \end{align}
+    Since $X$ is an arbitrary matrix, we can set $X_{sk}=1$ if $s=\nu$ and
+    $k=\beta$ and $X_{sk}=0$ for all the other values. Then we have
+    \begin{align}
+        \sum_{g\in G}D^{(i)}_{\mu\nu}(g)D^{(i)}_{\alpha\beta}(g^{-1})=0.
+    \end{align}
+    Let us now prove the second orthogonality relation and consider the matrix
+    \begin{align}
+        N&=\sum_{g\in G}D^{(i)}(g)XD^{(i)}(g).
+    \end{align}
+    In the same way as before, we can show that it commutes with all the matrices
+    of the irreducible representation $D^{(i)}$. Consequently, by Schur's first
+    lemma, $N$ is a multiple of the identity.
+    \begin{align}
+        N_{\mu\alpha}&=\sum_{g\in G}\sum_{s,k}D^{(i)}_{\mu s}(g)X_{sk}D^{(i)}_{k\alpha}(g^{-1})\\
+                     &=\lambda\delta_{\mu\alpha}
+    \end{align}
+    Let us now select $X$, such that the only non-zero element is $X_{\nu\beta}=1$.
+    The corresponding constant will be denoted by $\lambda_{\nu\beta}$, and we
+    obtain
+    \begin{align}
+        \sum_{g\in G}D^{(i)}_{\mu\nu}(g)D^{(i)}_{\beta\alpha}(g^{-1})&=\lambda_{\nu\beta}\delta_{\mu\alpha}
+    \end{align}
+    To determine $\lambda_{\nu\beta}$, we substitute $\mu=\alpha$ into this
+    equation and then take the sum of both sides over $\mu$ between $1$ and $n_i$.
+    \begin{align}
+        \sum_{g\in G}\sum_\mu D^{(i)}_{\mu\nu}(g)D^{(j)}_{\beta\nu}(g^{-1})&=
+        \lambda_{\nu\beta}n_i\\
+        \sum_{g\in G}D^{(i)}_{\beta\nu}(E)=\delta_{\nu\beta}m&=
+        \lambda_{\nu\beta}n_i\\
+        \implies\ \lambda_{\nu\beta}&=\delta_{\nu\beta}\frac m{n_i}
+    \end{align}
+    and therefore
+    \begin{align}
+        \sum_{g\in G}D^{(i)}_{\mu\nu}(g)D^{(i)}_{\beta\alpha}(g^{-1})=
+        \delta_{\mu\alpha}\delta_{\nu\beta}\frac m{n_i}\\
+        \sum_{g\in G}D^{(i)}_{\mu\nu}(g)D^{(j)}_{\alpha\beta}(g)=\frac m{n_i}
+        \delta_{ij}\delta_{\mu\alpha}\delta_{\alpha\nu}
+    \end{align}
+\end{proof}
+
+For example, the vector $D^{(i)}_{\mu\nu}$ has the components
+$D^{(i)}_{\mu\nu}(g_1),D^{(i)}_{\mu\nu}(g_2),\dots$
+The number of such vectors which corresponds to one irreducible representation,
+$D^{(i)}$, is $n_i^2$. The total number of orthonormal vectors is $\sum_i n_i^2$,
+where the sum is evaluated over the non-equivalent irreducible representation.
+Because of the orthogonality relations, all these vectors should be linearly
+independent. Since the number of linearly independent vectors cannot exceed the
+dimensionality of the vector space, it follows that $\sum_i n_i^2\leq m$.
+We have deduced that the number of different irreducible representations of a
+finite group is finite.
+
+% subsection Orthogonality relations of matrix elements of irreducible representation (end)
+
+\subsection{Characters of representations} % (fold)
+\label{sub:Characters of representations}
+
+The character of a representation $D(g)$ is defined as the following function
+of the group elements
+\begin{align}
+    \chi(g)&=\sum_i D_{ii}(g)=S_p D(g)
+\end{align}
+Let us consider some properties of the characters.
+\begin{enumerate}
+    \item Equivalent representations have identical characters, since the
+        trace of a matrix is invariant under the similarity transformations and
+        \begin{align}
+            S_p V^{-1}D(g)V&=S_p D(g).
+        \end{align}
+    \item The characters of the representation matrices corresponding to =
+        the elements of a given class are identical.
+    \item The characters of the irreducible representations have the orthogonality 
+        property
+        \begin{align}
+            \sum_{g\in G}\chi^{(i)}(g)\bar{\chi}^{(j)}(g)&=m\delta_{ij},
+        \end{align}
+        with $\chi$ and $\bar{\chi}$ being characters of $D$.
+\begin{proof}
+    From 1, it is sufficient to prove it for unitary representations. We know
+    that
+    \begin{align}
+        \sum_{g\in G}D^{(i)}_{\mu\mu}(g)D^{(j)}_{\alpha\alpha}(g)&=\frac m{n_i}
+        \delta_{ij}\delta_{\alpha\mu}\\
+        \sum_{g\in G}\chi^{(i)}(g)\chi^{(j)}(g)&=\frac m{n_i}n_i\delta_{ij}=m\delta_{ij}.
+    \end{align}
+    The function $\chi(g)$ has the same value for all the elements of a given
+    class
+    \begin{align}
+        \sum_s k_s\chi_s^{(i)}\bar{\chi}_s^{(j)}&=m\delta_{ij},
+    \end{align}
+    with $k_s$ the number of elements in the class $C_s$, and $\chi_s^{(i)}$ is
+    the value of the character of the representation corresponding to the element
+    of this class.
+\end{proof}
+\item The character of a \emph{reducible} representation $D$ is equal to the sum
+    of characters of irreducible representation into which it can decompose. To
+    show this, we recall the quasi-diagonal form of the reducible representations
+    and also using 1. If we denote the characters of a reducible representation
+    by $\chi(g)$, then
+    \begin{align}
+        \chi(g)&=\sum_j r_j\chi^{(j)}(g),
+    \end{align}
+    where $r_j$ shows how many times the irreducible representation $D^{(j)}$
+    enters the decomposition of the reducible one.
+    From the orthogonality relations, we can establish
+    \begin{align}
+        r_j&=\frac1m\sum_{g\in G}\bar{\chi}^{(j)}(g)\chi^{(j)}(g)
+    \end{align}
+    The decomposition of a reducible representation into irreducible parts can be
+    carried out uniquely. Symbolically, it is written
+    \begin{align}
+        D&=\sum_j{}^{\oplus}r_jD^{(j)}
+    \end{align}
+\end{enumerate}
+
+
+
+% subsection Characters of representations (end)
+
 \begin{exercise}
     Prove that any representation of a simple group (one without a normal divisor)
     is isomorphic to the group
@@ -440,5 +591,14 @@ multiple of the unit matrix.
     Use Schur's first lemma to show that the sum of irreducible representation
     matrices corresponding to the elements of a given class is a multiple of the
     unit matrix.
+\end{exercise}
+
+\begin{exercise}
+    Construct the matrices of the irreducible representation of $S_3$.
+\end{exercise}
+
+\begin{exercise}
+    Show that if two elements of a group are mutually inverse, then the
+    characters of their representations are mutually complex conjugate.
 \end{exercise}
 % section Representations of point groups (end)
